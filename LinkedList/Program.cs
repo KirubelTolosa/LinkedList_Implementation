@@ -152,13 +152,19 @@ namespace LinkedList
             }
             else if (headNode.data < data)
             {
-                headNode.AddSorted(data);
+                Node tempNode = headNode;
+                while (tempNode.next != null && tempNode.next.data < data)
+                {
+                    tempNode = tempNode.next;
+                }
+                Node node = new Node(data);
+                node.next = tempNode.next;
+                tempNode.next = node;
             }
             else if (headNode.data > data)
             {
                 Node temp = new Node(data);
                 temp.next = headNode;
-                // i didn't get how the following code does the trick!
                 headNode = temp;
             }
         }
