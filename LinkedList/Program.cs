@@ -150,7 +150,7 @@ namespace LinkedList
             {
                 headNode = new Node(data);
             }
-            else if (headNode.data < data)
+            else if (headNode.data <= data)
             {
                 Node tempNode = headNode;
                 while (tempNode.next != null && tempNode.next.data < data)
